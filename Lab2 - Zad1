@@ -1,0 +1,36 @@
+import random, sys, statistics
+
+randomValues = [2, 3, 3.5, 4, 4.5, 5]
+tableLength = input("Podaj długość tablicy: ")
+
+try:
+   val = int(tableLength)
+except ValueError:
+   print("To nie jest liczba całkowita!")
+   exit()
+if int(tableLength) < 2:
+    print("Długość tablicy nie może być mniejsza niż 2!")
+    exit()
+    
+generatedTable = []
+for i in range(int(tableLength)):
+    generatedTable.append(random.choice(randomValues))
+
+average = sum(generatedTable)/len(generatedTable)
+
+aboveAverage = []
+belowAverage = []
+
+for i in generatedTable:
+    if i > average:
+        aboveAverage.append(i)
+    else:
+        belowAverage.append(i)
+        
+print("Wylosowana tablica:", generatedTable)
+print("Średnia:", average)
+print("Wartość minimalna:", min(generatedTable))
+print("Wartość maksymalna:", max(generatedTable))
+print("Wartości wyższe niż średnia:", aboveAverage)
+print("Wartości niższe niż średnia:", belowAverage)
+print("Odchylenie standardowe:", statistics.stdev(generatedTable))
