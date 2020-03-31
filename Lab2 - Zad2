@@ -1,0 +1,20 @@
+import numpy
+
+try:
+   matrixSize = int(input("Podaj długość macierzy: "))
+except ValueError:
+   print("To nie jest liczba całkowita!")
+   exit()
+if matrixSize < 1:
+    print("Długość macierzy nie może być mniejsza niż 1!")
+    exit()
+    
+firstMatrix = 20 * numpy.random.random_sample((matrixSize, matrixSize)) - 10
+secondMatrix = 20 * numpy.random.random_sample((matrixSize, matrixSize)) - 10
+
+print("Pierwsza macierz:\n", firstMatrix)
+print("Druga macierz:\n", secondMatrix)
+print("Dodanie dwóch macierzy:\n", numpy.add(firstMatrix, secondMatrix))
+print("Odjęcie macierzy pierwszej od drugiej:\n", numpy.subtract(firstMatrix, secondMatrix))
+print("Odjęcie macierzy drugiej od pierwszej:\n", numpy.subtract(secondMatrix, firstMatrix))
+print("Mnożenie macierzy:\n", numpy.multiply(firstMatrix, secondMatrix))
